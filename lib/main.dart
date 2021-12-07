@@ -10,6 +10,7 @@ import 'package:driverevo/domain/auth/i_auth_provider.dart';
 import 'application/auth/auth_bloc.dart';
 import 'infurstracture/auth/firebase_auth_provider.dart';
 import 'presentation/auth/login.dart';
+import 'package:driverevo/chart.dart';
 
 void main() {
   //Bloc.observer = AppBlocObserver();
@@ -81,7 +82,7 @@ class _MyAppState extends State<MyApp> {
                         }
                       },
                       child: Scaffold(
-                        body: Login(),
+                        body: ChartPage(),
                       ),
                     )),
               ),
