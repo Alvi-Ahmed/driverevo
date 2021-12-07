@@ -24,8 +24,10 @@ class OverspedChart extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-              // ignore: require_trailing_commas
-              const Text("Bar chart"),
+              Text(
+                "Bar chart",
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
               Expanded(
                 child: charts.BarChart(series, animate: true),
               )
