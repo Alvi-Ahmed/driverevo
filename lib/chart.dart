@@ -44,7 +44,7 @@ class ChartPage extends StatelessWidget {
     ),
     OverspeedList(
       date: "dec 9",
-      total: 12,
+      total: 17,
       barColor: charts.ColorUtil.fromDartColor(Colors.red),
     ),
   ];
@@ -56,10 +56,29 @@ class ChartPage extends StatelessWidget {
         backgroundColor: Colors.red,
         title: Text("Driver Evaluation"),
       ),
-      body: Center(
-        child: OverspedChart(
-          data: data,
-        ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "Driver Name: Muid Ahmed",
+            textAlign: TextAlign.left,
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "Car Make & Model: Totota Saloon Corolla",
+            textAlign: TextAlign.left,
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          OverspedChart(
+            data: data,
+          ),
+        ],
       ),
     );
   }

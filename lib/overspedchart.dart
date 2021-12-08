@@ -25,7 +25,7 @@ class OverspedChart extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                "Bar chart",
+                "Bar chart of dat vs overspeed count",
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               Expanded(
