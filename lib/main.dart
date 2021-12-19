@@ -9,6 +9,7 @@ import 'package:driverevo/domain/auth/i_auth_provider.dart';
 
 import 'application/auth/auth_bloc.dart';
 import 'infurstracture/auth/firebase_auth_provider.dart';
+import 'login.dart';
 import 'presentation/auth/login.dart';
 import 'package:driverevo/chart.dart';
 
@@ -28,6 +29,10 @@ void main() {
   ]);
   runApp(MyApp());
 }
+
+const bgColor = Color(0xffDEDBE8);
+const primaryColor = Color(0xff9E96AF);
+const secondaryColor = Color(0xff8781C9);
 
 class MyApp extends StatefulWidget {
   // Create the initialization Future outside of `build`:
@@ -82,7 +87,7 @@ class _MyAppState extends State<MyApp> {
                         }
                       },
                       child: Scaffold(
-                        body: ChartPage(),
+                        body: LoginPage(),
                       ),
                     )),
               ),
