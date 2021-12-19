@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                 Icon(
                   Icons.directions_car,
                   size: MediaQuery.of(context).size.height / 4.5,
-                  color: const Color(0xff9E96AF),
+                  color: secondaryColor,
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 30,
@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 40,
-                    color: Color(0xff9E96AF),
+                    color: secondaryColor,
                   ),
                 ),
                 SizedBox(
