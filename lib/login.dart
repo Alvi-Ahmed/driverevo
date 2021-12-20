@@ -1,6 +1,7 @@
 // ignore_for_file: require_trailing_commas
 
 import 'package:driverevo/main.dart';
+import 'package:driverevo/register.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                         children: [
                           TextField(
                             style: TextStyle(
-                              color: bgColor,
+                              color: primaryColor,
                             ),
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -146,10 +147,17 @@ class _LoginPageState extends State<LoginPage> {
                       "If you did not registered please ",
                       textAlign: TextAlign.center,
                     ),
-                    Text(
-                      "  Register",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    GestureDetector(
+                        child: Text(
+                          "  Register",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Register()),
+                          );
+                        }),
                   ],
                 ),
               ],
