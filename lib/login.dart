@@ -144,12 +144,12 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "If you did not registered please ",
+                      "If you did not register. Please, ",
                       textAlign: TextAlign.center,
                     ),
                     GestureDetector(
                         child: Text(
-                          "  Register",
+                          " Register",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         onTap: () {
