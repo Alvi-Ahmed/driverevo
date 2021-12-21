@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:driverevo/main.dart';
 import 'package:driverevo/overspedchart.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ class ChartPage extends StatefulWidget {
 }
 
 class _ChartPageState extends State<ChartPage> {
+  String xdate = "";
+  String ydate = "";
   final List<OverspeedList> data = [
     OverspeedList(
       date: "dec 1",
@@ -106,37 +109,85 @@ class _ChartPageState extends State<ChartPage> {
         title: Text("Driver Evaluation"),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              "Driver Name: Muid Ahmed",
-              // textAlign: TextAlign.left,
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              "Car Make & Model: Totota Saloon Corolla",
-              // textAlign: TextAlign.left,
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            OverspedChart(
-              data: data,
-              text: "Overspeed Count Vs Date",
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            OverspedChart(
-              data: data1,
-              text: "Top Speed Vs Date",
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              DateTimePicker(
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff32cb95)),
+                type: DateTimePickerType.dateTime,
+                dateMask: 'd MMM, yyyy',
+                initialValue: DateTime.now().toString(),
+                firstDate: DateTime(2021),
+                lastDate: DateTime(2022),
+                dateLabelText: 'From',
+                onChanged: (val) {
+                  setState(() {
+                    xdate = val;
+                  });
+                },
+                validator: (val) {
+                  print(val);
+                  return null;
+                },
+                onSaved: (val) => print(val),
+              ),
+              DateTimePicker(
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff32cb95)),
+                type: DateTimePickerType.dateTime,
+                dateMask: 'd MMM, yyyy',
+                initialValue: DateTime.now().toString(),
+                firstDate: DateTime(2021),
+                lastDate: DateTime(2022),
+                dateLabelText: 'To',
+                onChanged: (val) {
+                  setState(() {
+                    ydate = val;
+                  });
+                },
+                validator: (val) {
+                  print(val);
+                  return null;
+                },
+                onSaved: (val) => print(val),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Driver Name: Muid Ahmed",
+                // textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Car Make & Model: Totota Saloon Corolla",
+                // textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              OverspedChart(
+                data: data,
+                text: "Overspeed Count Vs Date",
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              OverspedChart(
+                data: data1,
+                text: "Top Speed Vs Date",
+              ),
+            ],
+          ),
         ),
       ),
     );

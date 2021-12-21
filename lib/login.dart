@@ -1,5 +1,6 @@
 // ignore_for_file: require_trailing_commas
 
+import 'package:driverevo/chart.dart';
 import 'package:driverevo/main.dart';
 import 'package:driverevo/register.dart';
 import 'package:flutter/material.dart';
@@ -125,7 +126,13 @@ class _LoginPageState extends State<LoginPage> {
                                       RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15.0),
                                   ))),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ChartPage()),
+                                );
+                              },
                               child: const Text(
                                 'Sign In',
                                 style: TextStyle(fontSize: 18),
