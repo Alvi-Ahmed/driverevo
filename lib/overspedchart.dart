@@ -4,8 +4,9 @@ import 'package:driverevo/overspeedList.dart';
 
 class OverspedChart extends StatelessWidget {
   final List<OverspeedList> data;
+  final String text;
 
-  OverspedChart({required this.data});
+  OverspedChart({required this.data, required this.text});
   @override
   Widget build(BuildContext context) {
     List<charts.Series<OverspeedList, String>> series = [
@@ -25,7 +26,7 @@ class OverspedChart extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                "Bar chart of dat vs overspeed count",
+                text,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               Expanded(
