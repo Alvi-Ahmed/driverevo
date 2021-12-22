@@ -48,13 +48,13 @@ class _ChartPageState extends State<ChartPage> {
     ),
     OverspeedList(
       date: "dec 7",
-      total: 5,
-      barColor: charts.ColorUtil.fromDartColor(primaryColor),
+      total: 17,
+      barColor: charts.ColorUtil.fromDartColor(Colors.red),
     ),
     OverspeedList(
       date: "dec 9",
-      total: 17,
-      barColor: charts.ColorUtil.fromDartColor(Colors.red),
+      total: 13,
+      barColor: charts.ColorUtil.fromDartColor(primaryColor),
     ),
   ];
   final List<OverspeedList> data1 = [
@@ -118,8 +118,8 @@ class _ChartPageState extends State<ChartPage> {
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xff32cb95)),
-                type: DateTimePickerType.dateTime,
+                    color: secondaryColor),
+                type: DateTimePickerType.date,
                 dateMask: 'd MMM, yyyy',
                 initialValue: DateTime.now().toString(),
                 firstDate: DateTime(2021),
@@ -140,8 +140,8 @@ class _ChartPageState extends State<ChartPage> {
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xff32cb95)),
-                type: DateTimePickerType.dateTime,
+                    color: secondaryColor),
+                type: DateTimePickerType.date,
                 dateMask: 'd MMM, yyyy',
                 initialValue: DateTime.now().toString(),
                 firstDate: DateTime(2021),
@@ -163,6 +163,11 @@ class _ChartPageState extends State<ChartPage> {
               ),
               Text(
                 "Driver Name: Muid Ahmed",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: secondaryColor,
+                ),
                 // textAlign: TextAlign.left,
               ),
               SizedBox(
@@ -170,6 +175,11 @@ class _ChartPageState extends State<ChartPage> {
               ),
               Text(
                 "Car Make & Model: Totota Saloon Corolla",
+                style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 18,
+                  color: secondaryColor,
+                ),
                 // textAlign: TextAlign.left,
               ),
               SizedBox(

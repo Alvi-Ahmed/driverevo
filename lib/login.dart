@@ -5,6 +5,8 @@ import 'package:driverevo/main.dart';
 import 'package:driverevo/register.dart';
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -130,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ChartPage()),
+                                      builder: (context) => HomePage()),
                                 );
                               },
                               child: const Text(
