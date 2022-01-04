@@ -7,9 +7,16 @@ class OverspedChart extends StatelessWidget {
   final String text;
 
   OverspedChart({required this.data, required this.text});
+  // factory OverspedChart.withSampleData() {
+  //   return OverspedChart(
+  //     OverspeedList(),
+  //     // Disable animations for image tests.
+  //     animate: false,
+  //   );
+  // }
   @override
   Widget build(BuildContext context) {
-    List<charts.Series<OverspeedList, String>> series = [
+    List<charts.Series<OverspeedList, DateTime>> series = [
       charts.Series(
           id: "Total",
           data: data,
@@ -30,7 +37,16 @@ class OverspedChart extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               Expanded(
-                child: charts.BarChart(series, animate: true),
+                child: charts.TimeSeriesChart(
+                  series,
+                  animate: true,
+                  defaultRenderer: charts.BarRendererConfig<DateTime>(),
+                  defaultInteractions: true,
+                  behaviors: [
+                    charts.SelectNearest(),
+                    charts.DomainHighlighter()
+                  ],
+                ),
               )
             ],
           ),
