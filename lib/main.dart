@@ -1,5 +1,4 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:driverevo/notification.dart';
 import 'package:driverevo/user_inputdata.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,45 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:driverevo/domain/auth/i_auth_provider.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+
 import 'application/auth/auth_bloc.dart';
 import 'infurstracture/auth/firebase_auth_provider.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'login.dart';
 import 'presentation/auth/login.dart';
 import 'package:driverevo/chart.dart';
 
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-  print('Handling a background message ${message.messageId}');
-  print(message.data);
-  flutterLocalNotificationsPlugin.show(
-      message.data.hashCode,
-      message.data['title'].toString(),
-      message.data['body'].toString(),
-      NotificationDetails(
-        android: AndroidNotificationDetails(
-          channel.id,
-          channel.name,
-          //channel.description,
-        ),
-      ));
-}
-
-const AndroidNotificationChannel channel = AndroidNotificationChannel(
-  'high_importance_channel', // id
-  'High Importance Notifications', // title
-  // 'This channel is used for important notifications.', // description
-  importance: Importance.high,
-);
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
-
-void main() async {
+void main() {
   //Bloc.observer = AppBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   AwesomeNotifications().initialize(null, [
     NotificationChannel(
         channelKey: 'Key1',
@@ -58,11 +28,6 @@ void main() async {
         enableLights: true,
         enableVibration: true)
   ]);
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
-      ?.createNotificationChannel(channel);
   runApp(MyApp());
 }
 
@@ -77,41 +42,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final DatabaseReference _database = FirebaseDatabase().reference();
-  FirebaseMessaging _fcm = FirebaseMessaging.instance;
-  String message = "";
-  String token = "";
-
-  @override
-  void initState() {
-    super.initState();
-    var initialzationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
-    var initializationSettings =
-        InitializationSettings(android: initialzationSettingsAndroid);
-
-    flutterLocalNotificationsPlugin.initialize(initializationSettings);
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      RemoteNotification? notification = message.notification;
-      AndroidNotification? android = message.notification?.android;
-      if (notification != null && android != null) {
-        flutterLocalNotificationsPlugin.show(
-            notification.hashCode,
-            notification.title,
-            notification.body,
-            NotificationDetails(
-              android: AndroidNotificationDetails(
-                channel.id,
-                channel.name,
-                //channel.description,
-                icon: android?.smallIcon,
-              ),
-            ));
-      }
-    });
-    getToken();
-  }
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -176,14 +106,5 @@ class _MyAppState extends State<MyApp> {
             ),
           );
         });
-  }
-
-  getToken() async {
-    token = (await FirebaseMessaging.instance.getToken())!;
-    setState(() {
-      token = token;
-    });
-    final DatabaseReference _database = FirebaseDatabase().reference();
-    _database.child('fcm-token/${token}').set({"token": token});
   }
 }

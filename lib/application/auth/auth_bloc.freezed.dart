@@ -35,6 +35,10 @@ class _$AuthEventTearOff {
     return const AuthCheckRequested();
   }
 
+  GetUserLocation getUserLocation() {
+    return const GetUserLocation();
+  }
+
   SignedOut signedOut() {
     return const SignedOut();
   }
@@ -61,6 +65,7 @@ mixin _$AuthEvent {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserLocation,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -71,6 +76,7 @@ mixin _$AuthEvent {
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserLocation,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -82,6 +88,7 @@ mixin _$AuthEvent {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(GetUserLocation value) getUserLocation,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -92,6 +99,7 @@ mixin _$AuthEvent {
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(GetUserLocation value)? getUserLocation,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -206,6 +214,7 @@ class _$SignupEvent implements SignupEvent {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserLocation,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -219,6 +228,7 @@ class _$SignupEvent implements SignupEvent {
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserLocation,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -236,6 +246,7 @@ class _$SignupEvent implements SignupEvent {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(GetUserLocation value) getUserLocation,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -249,6 +260,7 @@ class _$SignupEvent implements SignupEvent {
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(GetUserLocation value)? getUserLocation,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -352,6 +364,7 @@ class _$LoginEvent implements LoginEvent {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserLocation,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -365,6 +378,7 @@ class _$LoginEvent implements LoginEvent {
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserLocation,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -382,6 +396,7 @@ class _$LoginEvent implements LoginEvent {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(GetUserLocation value) getUserLocation,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -395,6 +410,7 @@ class _$LoginEvent implements LoginEvent {
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(GetUserLocation value)? getUserLocation,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -461,6 +477,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserLocation,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -474,6 +491,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserLocation,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -491,6 +509,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(GetUserLocation value) getUserLocation,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -504,6 +523,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(GetUserLocation value)? getUserLocation,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -518,6 +538,112 @@ class _$AuthCheckRequested implements AuthCheckRequested {
 
 abstract class AuthCheckRequested implements AuthEvent {
   const factory AuthCheckRequested() = _$AuthCheckRequested;
+}
+
+/// @nodoc
+abstract class $GetUserLocationCopyWith<$Res> {
+  factory $GetUserLocationCopyWith(
+          GetUserLocation value, $Res Function(GetUserLocation) then) =
+      _$GetUserLocationCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetUserLocationCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $GetUserLocationCopyWith<$Res> {
+  _$GetUserLocationCopyWithImpl(
+      GetUserLocation _value, $Res Function(GetUserLocation) _then)
+      : super(_value, (v) => _then(v as GetUserLocation));
+
+  @override
+  GetUserLocation get _value => super._value as GetUserLocation;
+}
+
+/// @nodoc
+
+class _$GetUserLocation implements GetUserLocation {
+  const _$GetUserLocation();
+
+  @override
+  String toString() {
+    return 'AuthEvent.getUserLocation()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is GetUserLocation);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password, UserData userData)
+        signUp,
+    required TResult Function(String login, String password) login,
+    required TResult Function() authCheckRequested,
+    required TResult Function() getUserLocation,
+    required TResult Function() signedOut,
+    required TResult Function(String email) resetPassword,
+    required TResult Function() resetState,
+  }) {
+    return getUserLocation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password, UserData userData)? signUp,
+    TResult Function(String login, String password)? login,
+    TResult Function()? authCheckRequested,
+    TResult Function()? getUserLocation,
+    TResult Function()? signedOut,
+    TResult Function(String email)? resetPassword,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (getUserLocation != null) {
+      return getUserLocation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignupEvent value) signUp,
+    required TResult Function(LoginEvent value) login,
+    required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(GetUserLocation value) getUserLocation,
+    required TResult Function(SignedOut value) signedOut,
+    required TResult Function(ResetPassword value) resetPassword,
+    required TResult Function(ResetState value) resetState,
+  }) {
+    return getUserLocation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignupEvent value)? signUp,
+    TResult Function(LoginEvent value)? login,
+    TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(GetUserLocation value)? getUserLocation,
+    TResult Function(SignedOut value)? signedOut,
+    TResult Function(ResetPassword value)? resetPassword,
+    TResult Function(ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (getUserLocation != null) {
+      return getUserLocation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUserLocation implements AuthEvent {
+  const factory GetUserLocation() = _$GetUserLocation;
 }
 
 /// @nodoc
@@ -561,6 +687,7 @@ class _$SignedOut implements SignedOut {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserLocation,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -574,6 +701,7 @@ class _$SignedOut implements SignedOut {
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserLocation,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -591,6 +719,7 @@ class _$SignedOut implements SignedOut {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(GetUserLocation value) getUserLocation,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -604,6 +733,7 @@ class _$SignedOut implements SignedOut {
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(GetUserLocation value)? getUserLocation,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -688,6 +818,7 @@ class _$ResetPassword implements ResetPassword {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserLocation,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -701,6 +832,7 @@ class _$ResetPassword implements ResetPassword {
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserLocation,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -718,6 +850,7 @@ class _$ResetPassword implements ResetPassword {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(GetUserLocation value) getUserLocation,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -731,6 +864,7 @@ class _$ResetPassword implements ResetPassword {
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(GetUserLocation value)? getUserLocation,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -794,6 +928,7 @@ class _$ResetState implements ResetState {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserLocation,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -807,6 +942,7 @@ class _$ResetState implements ResetState {
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserLocation,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -824,6 +960,7 @@ class _$ResetState implements ResetState {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(GetUserLocation value) getUserLocation,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -837,6 +974,7 @@ class _$ResetState implements ResetState {
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(GetUserLocation value)? getUserLocation,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,

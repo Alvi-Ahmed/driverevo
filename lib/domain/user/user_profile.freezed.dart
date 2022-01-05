@@ -12,14 +12,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-TopSpeed _$TopSpeedFromJson(Map<String, dynamic> json) {
+UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
     case 'default':
-      return TopSpeedObj.fromJson(json);
+      return UserProfileObj.fromJson(json);
     case 'data':
-      return TopSpeedData.fromJson(json);
+      return UserData.fromJson(json);
+    case 'location':
+      return UserLocation.fromJson(json);
     case 'list':
-      return TopSpeedList.fromJson(json);
+      return UserList.fromJson(json);
 
     default:
       throw FallThroughError();
@@ -27,65 +29,112 @@ TopSpeed _$TopSpeedFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$TopSpeedTearOff {
-  const _$TopSpeedTearOff();
+class _$UserProfileTearOff {
+  const _$UserProfileTearOff();
 
-  TopSpeedObj call(TopSpeedData data) {
-    return TopSpeedObj(
+  UserProfileObj call(UserData data) {
+    return UserProfileObj(
       data,
     );
   }
 
-  TopSpeedData data(String date, String topspeed) {
-    return TopSpeedData(
-      date,
-      topspeed,
+  UserData data(
+      String name,
+      String phoneNumber,
+      String bloodGroup,
+      String address,
+      String postCode,
+      String gender,
+      String state,
+      String city,
+      UserLocation location) {
+    return UserData(
+      name,
+      phoneNumber,
+      bloodGroup,
+      address,
+      postCode,
+      gender,
+      state,
+      city,
+      location,
     );
   }
 
-  TopSpeedList list({List<TopSpeedObj>? users}) {
-    return TopSpeedList(
+  UserLocation location(double latitude, double longitude) {
+    return UserLocation(
+      latitude,
+      longitude,
+    );
+  }
+
+  UserList list({List<UserProfileObj>? users}) {
+    return UserList(
       users: users,
     );
   }
 
-  TopSpeed fromJson(Map<String, Object> json) {
-    return TopSpeed.fromJson(json);
+  UserProfile fromJson(Map<String, Object> json) {
+    return UserProfile.fromJson(json);
   }
 }
 
 /// @nodoc
-const $TopSpeed = _$TopSpeedTearOff();
+const $UserProfile = _$UserProfileTearOff();
 
 /// @nodoc
-mixin _$TopSpeed {
+mixin _$UserProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(TopSpeedData data) $default, {
-    required TResult Function(String date, String topspeed) data,
-    required TResult Function(List<TopSpeedObj>? users) list,
+    TResult Function(UserData data) $default, {
+    required TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)
+        data,
+    required TResult Function(double latitude, double longitude) location,
+    required TResult Function(List<UserProfileObj>? users) list,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(TopSpeedData data)? $default, {
-    TResult Function(String date, String topspeed)? data,
-    TResult Function(List<TopSpeedObj>? users)? list,
+    TResult Function(UserData data)? $default, {
+    TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)?
+        data,
+    TResult Function(double latitude, double longitude)? location,
+    TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(TopSpeedObj value) $default, {
-    required TResult Function(TopSpeedData value) data,
-    required TResult Function(TopSpeedList value) list,
+    TResult Function(UserProfileObj value) $default, {
+    required TResult Function(UserData value) data,
+    required TResult Function(UserLocation value) location,
+    required TResult Function(UserList value) list,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(TopSpeedObj value)? $default, {
-    TResult Function(TopSpeedData value)? data,
-    TResult Function(TopSpeedList value)? list,
+    TResult Function(UserProfileObj value)? $default, {
+    TResult Function(UserData value)? data,
+    TResult Function(UserLocation value)? location,
+    TResult Function(UserList value)? list,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -93,71 +142,72 @@ mixin _$TopSpeed {
 }
 
 /// @nodoc
-abstract class $TopSpeedCopyWith<$Res> {
-  factory $TopSpeedCopyWith(TopSpeed value, $Res Function(TopSpeed) then) =
-      _$TopSpeedCopyWithImpl<$Res>;
+abstract class $UserProfileCopyWith<$Res> {
+  factory $UserProfileCopyWith(
+          UserProfile value, $Res Function(UserProfile) then) =
+      _$UserProfileCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$TopSpeedCopyWithImpl<$Res> implements $TopSpeedCopyWith<$Res> {
-  _$TopSpeedCopyWithImpl(this._value, this._then);
+class _$UserProfileCopyWithImpl<$Res> implements $UserProfileCopyWith<$Res> {
+  _$UserProfileCopyWithImpl(this._value, this._then);
 
-  final TopSpeed _value;
+  final UserProfile _value;
   // ignore: unused_field
-  final $Res Function(TopSpeed) _then;
+  final $Res Function(UserProfile) _then;
 }
 
 /// @nodoc
-abstract class $TopSpeedObjCopyWith<$Res> {
-  factory $TopSpeedObjCopyWith(
-          TopSpeedObj value, $Res Function(TopSpeedObj) then) =
-      _$TopSpeedObjCopyWithImpl<$Res>;
-  $Res call({TopSpeedData data});
+abstract class $UserProfileObjCopyWith<$Res> {
+  factory $UserProfileObjCopyWith(
+          UserProfileObj value, $Res Function(UserProfileObj) then) =
+      _$UserProfileObjCopyWithImpl<$Res>;
+  $Res call({UserData data});
 }
 
 /// @nodoc
-class _$TopSpeedObjCopyWithImpl<$Res> extends _$TopSpeedCopyWithImpl<$Res>
-    implements $TopSpeedObjCopyWith<$Res> {
-  _$TopSpeedObjCopyWithImpl(
-      TopSpeedObj _value, $Res Function(TopSpeedObj) _then)
-      : super(_value, (v) => _then(v as TopSpeedObj));
+class _$UserProfileObjCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
+    implements $UserProfileObjCopyWith<$Res> {
+  _$UserProfileObjCopyWithImpl(
+      UserProfileObj _value, $Res Function(UserProfileObj) _then)
+      : super(_value, (v) => _then(v as UserProfileObj));
 
   @override
-  TopSpeedObj get _value => super._value as TopSpeedObj;
+  UserProfileObj get _value => super._value as UserProfileObj;
 
   @override
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(TopSpeedObj(
+    return _then(UserProfileObj(
       data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as TopSpeedData,
+              as UserData,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$TopSpeedObj implements TopSpeedObj {
-  const _$TopSpeedObj(this.data);
+class _$UserProfileObj implements UserProfileObj {
+  const _$UserProfileObj(this.data);
 
-  factory _$TopSpeedObj.fromJson(Map<String, dynamic> json) =>
-      _$_$TopSpeedObjFromJson(json);
+  factory _$UserProfileObj.fromJson(Map<String, dynamic> json) =>
+      _$_$UserProfileObjFromJson(json);
 
   @override
-  final TopSpeedData data;
+  final UserData data;
 
   @override
   String toString() {
-    return 'TopSpeed(data: $data)';
+    return 'UserProfile(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TopSpeedObj &&
+        (other is UserProfileObj &&
             (identical(other.data, data) ||
                 const DeepCollectionEquality().equals(other.data, data)));
   }
@@ -168,15 +218,26 @@ class _$TopSpeedObj implements TopSpeedObj {
 
   @JsonKey(ignore: true)
   @override
-  $TopSpeedObjCopyWith<TopSpeedObj> get copyWith =>
-      _$TopSpeedObjCopyWithImpl<TopSpeedObj>(this, _$identity);
+  $UserProfileObjCopyWith<UserProfileObj> get copyWith =>
+      _$UserProfileObjCopyWithImpl<UserProfileObj>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(TopSpeedData data) $default, {
-    required TResult Function(String date, String topspeed) data,
-    required TResult Function(List<TopSpeedObj>? users) list,
+    TResult Function(UserData data) $default, {
+    required TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)
+        data,
+    required TResult Function(double latitude, double longitude) location,
+    required TResult Function(List<UserProfileObj>? users) list,
   }) {
     return $default(this.data);
   }
@@ -184,9 +245,20 @@ class _$TopSpeedObj implements TopSpeedObj {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(TopSpeedData data)? $default, {
-    TResult Function(String date, String topspeed)? data,
-    TResult Function(List<TopSpeedObj>? users)? list,
+    TResult Function(UserData data)? $default, {
+    TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)?
+        data,
+    TResult Function(double latitude, double longitude)? location,
+    TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -198,9 +270,10 @@ class _$TopSpeedObj implements TopSpeedObj {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(TopSpeedObj value) $default, {
-    required TResult Function(TopSpeedData value) data,
-    required TResult Function(TopSpeedList value) list,
+    TResult Function(UserProfileObj value) $default, {
+    required TResult Function(UserData value) data,
+    required TResult Function(UserLocation value) location,
+    required TResult Function(UserList value) list,
   }) {
     return $default(this);
   }
@@ -208,9 +281,10 @@ class _$TopSpeedObj implements TopSpeedObj {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(TopSpeedObj value)? $default, {
-    TResult Function(TopSpeedData value)? data,
-    TResult Function(TopSpeedList value)? list,
+    TResult Function(UserProfileObj value)? $default, {
+    TResult Function(UserData value)? data,
+    TResult Function(UserLocation value)? location,
+    TResult Function(UserList value)? list,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -221,118 +295,224 @@ class _$TopSpeedObj implements TopSpeedObj {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$TopSpeedObjToJson(this)..['runtimeType'] = 'default';
+    return _$_$UserProfileObjToJson(this)..['runtimeType'] = 'default';
   }
 }
 
-abstract class TopSpeedObj implements TopSpeed {
-  const factory TopSpeedObj(TopSpeedData data) = _$TopSpeedObj;
+abstract class UserProfileObj implements UserProfile {
+  const factory UserProfileObj(UserData data) = _$UserProfileObj;
 
-  factory TopSpeedObj.fromJson(Map<String, dynamic> json) =
-      _$TopSpeedObj.fromJson;
+  factory UserProfileObj.fromJson(Map<String, dynamic> json) =
+      _$UserProfileObj.fromJson;
 
-  TopSpeedData get data => throw _privateConstructorUsedError;
+  UserData get data => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TopSpeedObjCopyWith<TopSpeedObj> get copyWith =>
+  $UserProfileObjCopyWith<UserProfileObj> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TopSpeedDataCopyWith<$Res> {
-  factory $TopSpeedDataCopyWith(
-          TopSpeedData value, $Res Function(TopSpeedData) then) =
-      _$TopSpeedDataCopyWithImpl<$Res>;
-  $Res call({String date, String topspeed});
+abstract class $UserDataCopyWith<$Res> {
+  factory $UserDataCopyWith(UserData value, $Res Function(UserData) then) =
+      _$UserDataCopyWithImpl<$Res>;
+  $Res call(
+      {String name,
+      String phoneNumber,
+      String bloodGroup,
+      String address,
+      String postCode,
+      String gender,
+      String state,
+      String city,
+      UserLocation location});
 }
 
 /// @nodoc
-class _$TopSpeedDataCopyWithImpl<$Res> extends _$TopSpeedCopyWithImpl<$Res>
-    implements $TopSpeedDataCopyWith<$Res> {
-  _$TopSpeedDataCopyWithImpl(
-      TopSpeedData _value, $Res Function(TopSpeedData) _then)
-      : super(_value, (v) => _then(v as TopSpeedData));
+class _$UserDataCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
+    implements $UserDataCopyWith<$Res> {
+  _$UserDataCopyWithImpl(UserData _value, $Res Function(UserData) _then)
+      : super(_value, (v) => _then(v as UserData));
 
   @override
-  TopSpeedData get _value => super._value as TopSpeedData;
+  UserData get _value => super._value as UserData;
 
   @override
   $Res call({
-    Object? date = freezed,
-    Object? topspeed = freezed,
+    Object? name = freezed,
+    Object? phoneNumber = freezed,
+    Object? bloodGroup = freezed,
+    Object? address = freezed,
+    Object? postCode = freezed,
+    Object? gender = freezed,
+    Object? state = freezed,
+    Object? city = freezed,
+    Object? location = freezed,
   }) {
-    return _then(TopSpeedData(
-      date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+    return _then(UserData(
+      name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      topspeed == freezed
-          ? _value.topspeed
-          : topspeed // ignore: cast_nullable_to_non_nullable
+      phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      bloodGroup == freezed
+          ? _value.bloodGroup
+          : bloodGroup // ignore: cast_nullable_to_non_nullable
+              as String,
+      address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      postCode == freezed
+          ? _value.postCode
+          : postCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String,
+      city == freezed
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
+      location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as UserLocation,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$TopSpeedData implements TopSpeedData {
-  const _$TopSpeedData(this.date, this.topspeed);
+class _$UserData implements UserData {
+  const _$UserData(this.name, this.phoneNumber, this.bloodGroup, this.address,
+      this.postCode, this.gender, this.state, this.city, this.location);
 
-  factory _$TopSpeedData.fromJson(Map<String, dynamic> json) =>
-      _$_$TopSpeedDataFromJson(json);
+  factory _$UserData.fromJson(Map<String, dynamic> json) =>
+      _$_$UserDataFromJson(json);
 
   @override
-  final String date;
+  final String name;
   @override
-  final String topspeed;
+  final String phoneNumber;
+  @override
+  final String bloodGroup;
+  @override
+  final String address;
+  @override
+  final String postCode;
+  @override
+  final String gender;
+  @override
+  final String state;
+  @override
+  final String city;
+  @override
+  final UserLocation location;
 
   @override
   String toString() {
-    return 'TopSpeed.data(date: $date, topspeed: $topspeed)';
+    return 'UserProfile.data(name: $name, phoneNumber: $phoneNumber, bloodGroup: $bloodGroup, address: $address, postCode: $postCode, gender: $gender, state: $state, city: $city, location: $location)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TopSpeedData &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)) &&
-            (identical(other.topspeed, topspeed) ||
+        (other is UserData &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.phoneNumber, phoneNumber) ||
                 const DeepCollectionEquality()
-                    .equals(other.topspeed, topspeed)));
+                    .equals(other.phoneNumber, phoneNumber)) &&
+            (identical(other.bloodGroup, bloodGroup) ||
+                const DeepCollectionEquality()
+                    .equals(other.bloodGroup, bloodGroup)) &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality()
+                    .equals(other.address, address)) &&
+            (identical(other.postCode, postCode) ||
+                const DeepCollectionEquality()
+                    .equals(other.postCode, postCode)) &&
+            (identical(other.gender, gender) ||
+                const DeepCollectionEquality().equals(other.gender, gender)) &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.city, city) ||
+                const DeepCollectionEquality().equals(other.city, city)) &&
+            (identical(other.location, location) ||
+                const DeepCollectionEquality()
+                    .equals(other.location, location)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(date) ^
-      const DeepCollectionEquality().hash(topspeed);
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(bloodGroup) ^
+      const DeepCollectionEquality().hash(address) ^
+      const DeepCollectionEquality().hash(postCode) ^
+      const DeepCollectionEquality().hash(gender) ^
+      const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(location);
 
   @JsonKey(ignore: true)
   @override
-  $TopSpeedDataCopyWith<TopSpeedData> get copyWith =>
-      _$TopSpeedDataCopyWithImpl<TopSpeedData>(this, _$identity);
+  $UserDataCopyWith<UserData> get copyWith =>
+      _$UserDataCopyWithImpl<UserData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(TopSpeedData data) $default, {
-    required TResult Function(String date, String topspeed) data,
-    required TResult Function(List<TopSpeedObj>? users) list,
+    TResult Function(UserData data) $default, {
+    required TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)
+        data,
+    required TResult Function(double latitude, double longitude) location,
+    required TResult Function(List<UserProfileObj>? users) list,
   }) {
-    return data(date, topspeed);
+    return data(name, phoneNumber, bloodGroup, address, postCode, gender, state,
+        city, this.location);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(TopSpeedData data)? $default, {
-    TResult Function(String date, String topspeed)? data,
-    TResult Function(List<TopSpeedObj>? users)? list,
+    TResult Function(UserData data)? $default, {
+    TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)?
+        data,
+    TResult Function(double latitude, double longitude)? location,
+    TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(date, topspeed);
+      return data(name, phoneNumber, bloodGroup, address, postCode, gender,
+          state, city, this.location);
     }
     return orElse();
   }
@@ -340,9 +520,10 @@ class _$TopSpeedData implements TopSpeedData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(TopSpeedObj value) $default, {
-    required TResult Function(TopSpeedData value) data,
-    required TResult Function(TopSpeedList value) list,
+    TResult Function(UserProfileObj value) $default, {
+    required TResult Function(UserData value) data,
+    required TResult Function(UserLocation value) location,
+    required TResult Function(UserList value) list,
   }) {
     return data(this);
   }
@@ -350,9 +531,10 @@ class _$TopSpeedData implements TopSpeedData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(TopSpeedObj value)? $default, {
-    TResult Function(TopSpeedData value)? data,
-    TResult Function(TopSpeedList value)? list,
+    TResult Function(UserProfileObj value)? $default, {
+    TResult Function(UserData value)? data,
+    TResult Function(UserLocation value)? location,
+    TResult Function(UserList value)? list,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -363,74 +545,256 @@ class _$TopSpeedData implements TopSpeedData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$TopSpeedDataToJson(this)..['runtimeType'] = 'data';
+    return _$_$UserDataToJson(this)..['runtimeType'] = 'data';
   }
 }
 
-abstract class TopSpeedData implements TopSpeed {
-  const factory TopSpeedData(String date, String topspeed) = _$TopSpeedData;
+abstract class UserData implements UserProfile {
+  const factory UserData(
+      String name,
+      String phoneNumber,
+      String bloodGroup,
+      String address,
+      String postCode,
+      String gender,
+      String state,
+      String city,
+      UserLocation location) = _$UserData;
 
-  factory TopSpeedData.fromJson(Map<String, dynamic> json) =
-      _$TopSpeedData.fromJson;
+  factory UserData.fromJson(Map<String, dynamic> json) = _$UserData.fromJson;
 
-  String get date => throw _privateConstructorUsedError;
-  String get topspeed => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get phoneNumber => throw _privateConstructorUsedError;
+  String get bloodGroup => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
+  String get postCode => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
+  String get state => throw _privateConstructorUsedError;
+  String get city => throw _privateConstructorUsedError;
+  UserLocation get location => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TopSpeedDataCopyWith<TopSpeedData> get copyWith =>
+  $UserDataCopyWith<UserData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TopSpeedListCopyWith<$Res> {
-  factory $TopSpeedListCopyWith(
-          TopSpeedList value, $Res Function(TopSpeedList) then) =
-      _$TopSpeedListCopyWithImpl<$Res>;
-  $Res call({List<TopSpeedObj>? users});
+abstract class $UserLocationCopyWith<$Res> {
+  factory $UserLocationCopyWith(
+          UserLocation value, $Res Function(UserLocation) then) =
+      _$UserLocationCopyWithImpl<$Res>;
+  $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
-class _$TopSpeedListCopyWithImpl<$Res> extends _$TopSpeedCopyWithImpl<$Res>
-    implements $TopSpeedListCopyWith<$Res> {
-  _$TopSpeedListCopyWithImpl(
-      TopSpeedList _value, $Res Function(TopSpeedList) _then)
-      : super(_value, (v) => _then(v as TopSpeedList));
+class _$UserLocationCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
+    implements $UserLocationCopyWith<$Res> {
+  _$UserLocationCopyWithImpl(
+      UserLocation _value, $Res Function(UserLocation) _then)
+      : super(_value, (v) => _then(v as UserLocation));
 
   @override
-  TopSpeedList get _value => super._value as TopSpeedList;
+  UserLocation get _value => super._value as UserLocation;
 
   @override
   $Res call({
-    Object? users = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
-    return _then(TopSpeedList(
-      users: users == freezed
-          ? _value.users
-          : users // ignore: cast_nullable_to_non_nullable
-              as List<TopSpeedObj>?,
+    return _then(UserLocation(
+      latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$TopSpeedList implements TopSpeedList {
-  const _$TopSpeedList({this.users});
+class _$UserLocation implements UserLocation {
+  const _$UserLocation(this.latitude, this.longitude);
 
-  factory _$TopSpeedList.fromJson(Map<String, dynamic> json) =>
-      _$_$TopSpeedListFromJson(json);
+  factory _$UserLocation.fromJson(Map<String, dynamic> json) =>
+      _$_$UserLocationFromJson(json);
 
   @override
-  final List<TopSpeedObj>? users;
+  final double latitude;
+  @override
+  final double longitude;
 
   @override
   String toString() {
-    return 'TopSpeed.list(users: $users)';
+    return 'UserProfile.location(latitude: $latitude, longitude: $longitude)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TopSpeedList &&
+        (other is UserLocation &&
+            (identical(other.latitude, latitude) ||
+                const DeepCollectionEquality()
+                    .equals(other.latitude, latitude)) &&
+            (identical(other.longitude, longitude) ||
+                const DeepCollectionEquality()
+                    .equals(other.longitude, longitude)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(latitude) ^
+      const DeepCollectionEquality().hash(longitude);
+
+  @JsonKey(ignore: true)
+  @override
+  $UserLocationCopyWith<UserLocation> get copyWith =>
+      _$UserLocationCopyWithImpl<UserLocation>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(UserData data) $default, {
+    required TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)
+        data,
+    required TResult Function(double latitude, double longitude) location,
+    required TResult Function(List<UserProfileObj>? users) list,
+  }) {
+    return location(latitude, longitude);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(UserData data)? $default, {
+    TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)?
+        data,
+    TResult Function(double latitude, double longitude)? location,
+    TResult Function(List<UserProfileObj>? users)? list,
+    required TResult orElse(),
+  }) {
+    if (location != null) {
+      return location(latitude, longitude);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(UserProfileObj value) $default, {
+    required TResult Function(UserData value) data,
+    required TResult Function(UserLocation value) location,
+    required TResult Function(UserList value) list,
+  }) {
+    return location(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UserProfileObj value)? $default, {
+    TResult Function(UserData value)? data,
+    TResult Function(UserLocation value)? location,
+    TResult Function(UserList value)? list,
+    required TResult orElse(),
+  }) {
+    if (location != null) {
+      return location(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$UserLocationToJson(this)..['runtimeType'] = 'location';
+  }
+}
+
+abstract class UserLocation implements UserProfile {
+  const factory UserLocation(double latitude, double longitude) =
+      _$UserLocation;
+
+  factory UserLocation.fromJson(Map<String, dynamic> json) =
+      _$UserLocation.fromJson;
+
+  double get latitude => throw _privateConstructorUsedError;
+  double get longitude => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UserLocationCopyWith<UserLocation> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserListCopyWith<$Res> {
+  factory $UserListCopyWith(UserList value, $Res Function(UserList) then) =
+      _$UserListCopyWithImpl<$Res>;
+  $Res call({List<UserProfileObj>? users});
+}
+
+/// @nodoc
+class _$UserListCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
+    implements $UserListCopyWith<$Res> {
+  _$UserListCopyWithImpl(UserList _value, $Res Function(UserList) _then)
+      : super(_value, (v) => _then(v as UserList));
+
+  @override
+  UserList get _value => super._value as UserList;
+
+  @override
+  $Res call({
+    Object? users = freezed,
+  }) {
+    return _then(UserList(
+      users: users == freezed
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<UserProfileObj>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserList implements UserList {
+  const _$UserList({this.users});
+
+  factory _$UserList.fromJson(Map<String, dynamic> json) =>
+      _$_$UserListFromJson(json);
+
+  @override
+  final List<UserProfileObj>? users;
+
+  @override
+  String toString() {
+    return 'UserProfile.list(users: $users)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UserList &&
             (identical(other.users, users) ||
                 const DeepCollectionEquality().equals(other.users, users)));
   }
@@ -441,15 +805,26 @@ class _$TopSpeedList implements TopSpeedList {
 
   @JsonKey(ignore: true)
   @override
-  $TopSpeedListCopyWith<TopSpeedList> get copyWith =>
-      _$TopSpeedListCopyWithImpl<TopSpeedList>(this, _$identity);
+  $UserListCopyWith<UserList> get copyWith =>
+      _$UserListCopyWithImpl<UserList>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(TopSpeedData data) $default, {
-    required TResult Function(String date, String topspeed) data,
-    required TResult Function(List<TopSpeedObj>? users) list,
+    TResult Function(UserData data) $default, {
+    required TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)
+        data,
+    required TResult Function(double latitude, double longitude) location,
+    required TResult Function(List<UserProfileObj>? users) list,
   }) {
     return list(users);
   }
@@ -457,9 +832,20 @@ class _$TopSpeedList implements TopSpeedList {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(TopSpeedData data)? $default, {
-    TResult Function(String date, String topspeed)? data,
-    TResult Function(List<TopSpeedObj>? users)? list,
+    TResult Function(UserData data)? $default, {
+    TResult Function(
+            String name,
+            String phoneNumber,
+            String bloodGroup,
+            String address,
+            String postCode,
+            String gender,
+            String state,
+            String city,
+            UserLocation location)?
+        data,
+    TResult Function(double latitude, double longitude)? location,
+    TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
   }) {
     if (list != null) {
@@ -471,9 +857,10 @@ class _$TopSpeedList implements TopSpeedList {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(TopSpeedObj value) $default, {
-    required TResult Function(TopSpeedData value) data,
-    required TResult Function(TopSpeedList value) list,
+    TResult Function(UserProfileObj value) $default, {
+    required TResult Function(UserData value) data,
+    required TResult Function(UserLocation value) location,
+    required TResult Function(UserList value) list,
   }) {
     return list(this);
   }
@@ -481,9 +868,10 @@ class _$TopSpeedList implements TopSpeedList {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(TopSpeedObj value)? $default, {
-    TResult Function(TopSpeedData value)? data,
-    TResult Function(TopSpeedList value)? list,
+    TResult Function(UserProfileObj value)? $default, {
+    TResult Function(UserData value)? data,
+    TResult Function(UserLocation value)? location,
+    TResult Function(UserList value)? list,
     required TResult orElse(),
   }) {
     if (list != null) {
@@ -494,18 +882,17 @@ class _$TopSpeedList implements TopSpeedList {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$TopSpeedListToJson(this)..['runtimeType'] = 'list';
+    return _$_$UserListToJson(this)..['runtimeType'] = 'list';
   }
 }
 
-abstract class TopSpeedList implements TopSpeed {
-  const factory TopSpeedList({List<TopSpeedObj>? users}) = _$TopSpeedList;
+abstract class UserList implements UserProfile {
+  const factory UserList({List<UserProfileObj>? users}) = _$UserList;
 
-  factory TopSpeedList.fromJson(Map<String, dynamic> json) =
-      _$TopSpeedList.fromJson;
+  factory UserList.fromJson(Map<String, dynamic> json) = _$UserList.fromJson;
 
-  List<TopSpeedObj>? get users => throw _privateConstructorUsedError;
+  List<UserProfileObj>? get users => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TopSpeedListCopyWith<TopSpeedList> get copyWith =>
+  $UserListCopyWith<UserList> get copyWith =>
       throw _privateConstructorUsedError;
 }
